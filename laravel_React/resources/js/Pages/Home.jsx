@@ -4,8 +4,8 @@ import { Link, usePage } from '@inertiajs/react';
 import React from 'react';
 
 const Home = (props) => {
-    const { eventtype , categories } = usePage().props
-    console.log(categories,eventtype);
+    const { eventtype} = usePage().props
+    console.log(eventtype);
     return (
         <>
             <Header></Header>
@@ -237,19 +237,21 @@ const Home = (props) => {
       </div>
       <div className="schedule-item">
         <div className="about-image-box bg-white mb-4">
+
+            {/* Eventype Looping Here are Start */}
   {
     eventtype.map((item)=>(
 
           <div className="row">
             <div className="col-lg-3 d-flex">
               <div className="about-content text-center text-lg-start p-4 py-8 ">
-               <img src={"uploads/" + item.image} alt="" />
+               <img src={"uploads/" + item.image} alt="" width={"300px"} />
               </div>
             </div>
             <div className="col-lg-6 d-flex">
               <div className="schedule-content text-lg-start text-center py-4">
-                <h4 className="mb-1"> Introduce the Event</h4>
-                <p className="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                {/* <h4 className="mb-1">{item.category.name}</h4> */}
+             
                 <ul className="schedule-items d-flex justify-content-lg-start justify-content-center">
                   <li className="d-flex align-items-center me-4">
                     <i className="icon-location-pin theme pe-1" />
@@ -264,10 +266,10 @@ const Home = (props) => {
             </div>
             <div className="col-lg-3 d-flex">
               <div className="schedule-speaker d-lg-flex p-4 align-items-center text-center text-lg-start w-100 border-start">
-                <img src="frontend/assets/images/reviewer/1.jpg" alt className="rounded-circle img-circle" />
+                <img src={"uploads/" + item.image} alt className="rounded-circle img-circle" width={"150px"} />
                 <div className="speaker-content ms-3">
-                  <h6 className="mb-0 theme">Jesus Holland</h6>
-                  <small>Host &amp; Speaker</small>
+                  <h3 className="mb-0 theme">{item.price}</h3>
+                
                 </div>
               </div>
             </div>
